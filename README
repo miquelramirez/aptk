@@ -1,0 +1,8 @@
+1- In order to compile the toolkit, we need to install 
+   
+	 libjudy	
+	 scons	   
+
+2- Compile the toolkit executing
+
+	./build-toolkit

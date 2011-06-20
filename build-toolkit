@@ -1,0 +1,10 @@
+#! /bin/sh
+
+
+cd toolkit/lib/libff && \
+(make || exit 1)
+cd ../../.. && \
+cd toolkit && \
+(scons || exit 1)
+cd ..
+
