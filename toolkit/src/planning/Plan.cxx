@@ -33,6 +33,7 @@ namespace aig_tk
 			if ( m_actions[i] == NULL )
 			{
 				os << i+1 << ". GAP! [0]" << std::endl;
+				continue;
 			}
 			os << i+1 << ". " << m_actions[i]->signature();
 			os << " [" << m_actions[i]->cost() << "]" <<  std::endl;
