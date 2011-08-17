@@ -26,10 +26,14 @@ namespace aig_tk
 		m_actions.push_back( m_task.actions()[a] );
 	}
 
-	void	Plan::print_fancy( std::ofstream& os )
+	void	Plan::print_fancy( std::ostream& os )
 	{
 		for ( unsigned i = 0; i < m_actions.size(); i++ )
 		{
+			if ( m_actions[i] == NULL )
+			{
+				os << i+1 << ". GAP! [0]" << std::endl;
+			}
 			os << i+1 << ". " << m_actions[i]->signature();
 			os << " [" << m_actions[i]->cost() << "]" <<  std::endl;
 		}	

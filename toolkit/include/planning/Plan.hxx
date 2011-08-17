@@ -19,7 +19,7 @@ namespace aig_tk
 		void		set_action_at( unsigned a, unsigned t );
 		void		add_action( unsigned a );
 
-		void		print_fancy( std::ofstream& os );
+		void		print_fancy( std::ostream& os );
 
 	protected:
 		
@@ -31,6 +31,8 @@ namespace aig_tk
 	inline	void		Plan::set_num_steps( unsigned n )
 	{
 		m_actions.resize( n );
+		for ( unsigned k = 0; k < m_actions.size(); k++ )
+			m_actions[k] = NULL;
 	}
 
 	inline	unsigned	Plan::num_steps() const
