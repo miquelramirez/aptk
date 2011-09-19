@@ -161,7 +161,8 @@ namespace FF
 	{
 		int i;
 		for( i = 0; i < gnum_types; i++)
-			types.push_back( std::string( gtype_names[i] ) );
+			if ( gtype_names[i] != NULL )
+				types.push_back( std::string( gtype_names[i] ) );
 
 		types.push_back("NO-TYPE");
 	}
