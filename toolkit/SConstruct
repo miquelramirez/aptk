@@ -6,7 +6,7 @@ include_paths = ['include', 'lib']
 lib_paths = [ '../lib/libff' ]
 
 common_env.Append( CPPPATH = [ os.path.abspath(p) for p in include_paths ] )
-common_env.Append( CCFLAGS = ['-g','-Wall', '-DDEBUG','-O3', '-static', '-std=c++0x' ] )
+common_env.Append( CCFLAGS = ['-g','-Wall', '-DDEBUG', '-static', '-std=c++0x' ] )
 #common_env.Append( CCFLAGS = ['-O3','-Wall','-DNDEBUG'] )
 common_env.Append( LIBS=[ 'cppunit', 'dl', 'ff', 'Judy' ])
 common_env.Append( LIBPATH=[ os.path.abspath(p) for p in lib_paths ] )
