@@ -8,6 +8,7 @@ Reachability_Test::Reachability_Test( STRIPS_Problem& p )
 	: m_problem( p )
 {
 	m_reachable_atoms.resize( m_problem.fluents().size() );
+	m_reach_next.resize( m_problem.fluents().size() );
 	m_action_mask.resize( m_problem.actions().size() );
 }
 
@@ -23,11 +24,13 @@ void	Reachability_Test::initialize(Fluent_Vec& s)
 		m_action_mask[i] = false;
 	for ( unsigned i = 0; i < s.size(); i++ )
 		m_reachable_atoms[ s[i] ] = true;
+	
 }
 
 bool	Reachability_Test::apply_actions()
 {
 	bool fixed_point = true;
+	m_reach_next = m_reachable_atoms;
 
 	for ( unsigned i = 0; i < m_problem.actions().size(); i++ )
 	{
@@ -46,14 +49,18 @@ bool	Reachability_Test::apply_actions()
 			}
 		
 		if ( !applicable ) continue;
-
+		
+		#ifdef DEBUG
+		std::cout << "Applying " << a->signature() << std::endl;
+		#endif
+		
 		// Apply effects
 		Fluent_Vec&	ai = a->add_vec();
 		for ( unsigned j = 0; j < ai.size(); j++ )
 		{
 			if ( !m_reachable_atoms[ai[j]] )
 			{
-				m_reachable_atoms[ai[j]] = true;
+				m_reach_next[ai[j]] = true;
 				fixed_point = false;
 			}
 		}
@@ -61,18 +68,36 @@ bool	Reachability_Test::apply_actions()
 		// Mark action as already used
 		m_action_mask[i] = true;
 	}
-
+	m_reachable_atoms = m_reach_next;
 	return fixed_point;
+}
+
+void	Reachability_Test::print_reachable_atoms()
+{
+	for (unsigned k = 0; k < m_reachable_atoms.size(); k++ )
+		if ( m_reachable_atoms[k] )
+			std::cout << m_problem.fluents()[k]->signature() << std::endl;	
 }
 
 bool	Reachability_Test::is_reachable( Fluent_Vec& s, Fluent_Vec& g )
 {
 	initialize(s);
+
+	#ifdef DEBUG
+	std::cout << "Reachable atoms:" << std::endl;
+	print_reachable_atoms();
+	#endif	
 	
 	while ( !apply_actions() )
+	{
+		#ifdef DEBUG
+		std::cout << "Reachable atoms:" << std::endl;
+		print_reachable_atoms();
+		#endif	
+
 		if ( check( g ) )	
 			return true;
-
+	}
 	return check(g);
 }
 
@@ -80,12 +105,25 @@ bool	Reachability_Test::is_reachable( Fluent_Vec& s, Fluent_Vec& g, unsigned op 
 {
 	initialize(s);
 
+	#ifdef DEBUG
+	std::cout << "Disabling operator " << m_problem.actions()[op]->signature() << std::endl;
+	#endif
 	m_action_mask[op] = true;	
+	#ifdef DEBUG
+	std::cout << "Reachable atoms:" << std::endl;
+	print_reachable_atoms();
+	#endif	
 
 	while ( !apply_actions() )
+	{
+		#ifdef DEBUG
+		std::cout << "Reachable atoms:" << std::endl;
+		print_reachable_atoms();
+		#endif	
+
 		if ( check( g ) )	
 			return true;
-
+	}
 	return check(g);
 }
 

@@ -25,10 +25,12 @@ namespace aig_tk
 		void	initialize(Fluent_Vec& s);
 		bool	check( Fluent_Vec& set );
 
+		void	print_reachable_atoms();
 	protected:
 
 		STRIPS_Problem&		m_problem;
 		std::vector<bool>	m_reachable_atoms;
+		std::vector<bool>	m_reach_next;
 		std::vector<bool>	m_action_mask;		
 	};
 
