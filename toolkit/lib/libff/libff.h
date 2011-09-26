@@ -58,7 +58,7 @@ namespace FF
 			if ( i < a->num_name_vars-1 )
 				str += " ";
 		}
-		str += " )";
+		str += ")";
 		return str;
 	}
 
