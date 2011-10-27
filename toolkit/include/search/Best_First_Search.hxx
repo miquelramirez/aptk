@@ -43,7 +43,7 @@ namespace aig_tk {
                 /**
                  * Evaluate node
                  */
-                void eval( Node *n ) { setHn(n); setFn(n); }
+                virtual void eval( Node *n ) { setHn(n); setFn(n); }
                 
                 /**
                  * Set Fn according to z and w factor
@@ -114,7 +114,7 @@ namespace aig_tk {
                 virtual bool solve( Node* start, std::vector<Node*> &global_plan);
                 virtual Node* solveStep(Node* init, std::vector<Node*> &global_plan);
                 virtual bool getIsEnd(){return isEnd;}
-                virtual bool getIsInit(){std::cout << "entro?" << std::endl; return isIn;}
+                virtual bool getIsInit(){return isIn;}
                 virtual void setIsEnd(bool is_end){ isEnd = is_end;}
                 virtual void setIsInit(bool is_init){ isIn = is_init;}
                 virtual std::vector<Node*> getOpenList();

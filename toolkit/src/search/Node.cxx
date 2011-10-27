@@ -21,15 +21,23 @@ namespace aig_tk
     delete m_state;
   }
 
-  Node*	Node::root(aig_tk::STRIPS_Problem &p)
+  Node*	Node::root(aig_tk::STRIPS_Problem &p, bool regress)
   {
     Node *r = new Node;
 
     // can't get this statically for now
     r->m_state = new State(p);
 
-    for(unsigned i = 0; i < p.init().size(); i++) {
-      r->m_state->set(p.init()[i]);
+    if (regress)
+    {
+	for (unsigned i = 0; i < p.goal().size(); i++ )
+		r->m_state->set(p.goal()[i]);
+    }
+    else
+    {
+    	for(unsigned i = 0; i < p.init().size(); i++) {
+      		r->m_state->set(p.init()[i]);
+    	}
     }
 
     std::sort(r->m_state->fluent_vec().begin(),
@@ -49,11 +57,14 @@ namespace aig_tk
     return NULL;
   }
 
-  Node* Node::successor(aig_tk::Action *a) {
+  Node* Node::successor(aig_tk::Action *a, bool regress) {
 
     Node *succ = new Node();
-    
-    succ->m_state = s()->progress_through(*a);
+	
+    if (regress)
+	succ->m_state = s()->regress_through(*a);
+    else
+    	succ->m_state = s()->progress_through(*a);
 
     // enforce orderedness of fluent_vec
     //NIR: Do not need that, need to check with MRJ

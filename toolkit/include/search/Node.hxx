@@ -39,9 +39,9 @@ namespace aig_tk
     static	Node*	regress_evaluate( Node* parent, Action& a, Heuristic& h );
     static	Node*	progress( Node* parent, Action& a );
     static 	Node*	regress( Node* parent, Action& a );
-    static	Node*	root(aig_tk::STRIPS_Problem &p);
+    static	Node*	root(aig_tk::STRIPS_Problem &p, bool regress = false);
 
-    Node* successor(Action *a);
+    Node* successor(Action *a, bool regress = false );
 
     Action_Ptr_Vec &helpful() { return m_helpful; }
 

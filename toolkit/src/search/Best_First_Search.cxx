@@ -81,7 +81,7 @@ namespace aig_tk {
                                                         
                         if(isGoal(head)) {
                                 close(head);
-                                std::cout << "counter: " << counter << std::endl;
+                                std::cout << "GOAL Found: counter: " << counter << std::endl;
                                 return head;
                         }
                         process(head);
