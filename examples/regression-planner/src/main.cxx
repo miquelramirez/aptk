@@ -94,7 +94,7 @@ int main( int argc, char** argv )
 	/**
 	 * computing heuristic from the initial state
 	 */        
-	estimator.compute( strips_prob.init() );
+	estimator.compute_without_supporters( strips_prob.init() );
 	tf = time_used();
 	heuristic_time = tf - t0;
                 
