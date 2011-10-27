@@ -59,6 +59,7 @@ namespace aig_tk
 		for( unsigned i = 0; i < types_idx.size(); i++)
 			m_pddl_objects_by_type[ types_idx[i] ].push_back( obj );
 	}
+
 	unsigned STRIPS_Problem::add_pddl_operator( STRIPS_Problem& p, std::string signature,
 						    std::string base_name, std::vector<std::string>& args,
 						    Index_Vec& arg_types )

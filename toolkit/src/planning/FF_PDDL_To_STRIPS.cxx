@@ -36,8 +36,6 @@ void	FF_PDDL_To_STRIPS::get_problem_description( std::string pddl_domain_path,
 
 	for ( unsigned i=0;i<objects.size();i++)			
 		STRIPS_Problem::add_object( strips_problem, objects[i], objects_types[i] );
-
-	
 	
 	for ( int i = 0; i < gnum_ft_conn; i++ )
 	{

@@ -175,16 +175,21 @@ namespace FF
 			objs.push_back( std::string( gconstants[i] ) );
 			std::vector< unsigned > types;
 			for( j = 0; j < gnum_types; j++)
-				if(gis_member[i][j])
-					types.push_back( j );
+				if ( gtype_names[j] != NULL )
+					if(gis_member[i][j])
+						types.push_back( j );
 			objs_types.push_back(types);
 		}
 
 		objs.push_back("NO-OBJECT");
 		std::vector< unsigned > types;
-		types.push_back(0);
-		types.push_back(1);
-		types.push_back(2);
+		// MRJ: Figuring out the index of the NoType type
+		int k = 0;
+		for( int i = 0; i < gnum_types; i++)
+			if ( gtype_names[i] != NULL )
+				k++;
+		types.push_back(k);
+
 		objs_types.push_back(types);
 		
 		
