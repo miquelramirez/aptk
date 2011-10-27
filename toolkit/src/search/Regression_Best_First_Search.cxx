@@ -20,22 +20,22 @@ namespace aig_tk
 
 	void	Regression_Best_First_Search::process( Node* head )
 	{
-                for(unsigned i = 0; i < problem().num_actions(); i++) 
+		for(unsigned i = 0; i < problem().num_actions(); i++) 
 		{
-                        Action* a = problem().actions()[i];
-                        if( a->can_be_applied_on( *( head->s() ), true ) ) 
+			Action* a = problem().actions()[i];
+			if( a->can_be_applied_on( *( head->s() ), true ) ) 
 			{
-                                Node *suc = head->successor(a, true);
-                                Hash_Key& h = suc->hash();
-                                if(previously_hashed(suc, h)) 
+				Node *suc = head->successor(a, true);
+				Hash_Key& h = suc->hash();
+				if(previously_hashed(suc, h)) 
 				{
-                                        delete suc;
-                                }
-                                else {
-                                        openNode(suc, h, m_open);
-                                }
-                        }
-                }
+					delete suc;
+				}
+				else {
+					openNode(suc, h, m_open);
+				}
+			}
+		}
                 m_expand_count++;
 	} 
 }
