@@ -38,7 +38,7 @@ namespace aig_tk {
                 /**
                  * Init Criteria
                  */
-                virtual bool isInit(Node *candidate) { std::cout << "entro?" << std::endl; return candidate->s()->entails(problem().init());}
+                virtual bool isInit(Node *candidate) { return candidate->s()->entails(problem().init());}
 
                 /**
                  * Evaluate node
