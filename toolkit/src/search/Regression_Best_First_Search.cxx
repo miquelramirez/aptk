@@ -10,8 +10,11 @@ namespace aig_tk
 	bool	Regression_Best_First_Search::isGoal( Node* candidate )
 	{
 
-		return 	candidate->s()->entails(problem().init()) 
-			&& candidate->s()->fluent_vec().size() == problem().init().size();
+		for(unsigned i = 0; i < candidate->s()->fluent_vec().size(); i++)
+			if( ! problem().is_in_init( candidate->s()->fluent_vec()[ i ] ) )
+				return false;
+
+		return true;
 	} 
 
 	void	Regression_Best_First_Search::eval( Node* n )
