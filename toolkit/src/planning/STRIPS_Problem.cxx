@@ -221,7 +221,7 @@ namespace aig_tk
 			p.m_in_init[ init_vec[k] ] = true;
 	}
 
-	void	STRIPS_Problem::set_goal( STRIPS_Problem& p, Fluent_Vec& goal_vec )
+	void	STRIPS_Problem::set_goal( STRIPS_Problem& p, Fluent_Vec& goal_vec, bool createEndOp )
 	{
 #ifdef DEBUG
 		for ( unsigned k = 0; k < goal_vec.size(); k++ )
@@ -231,9 +231,13 @@ namespace aig_tk
 		p.goal().assign( goal_vec.begin(), goal_vec.end() );
 		for ( unsigned k = 0; k < goal_vec.size(); k++ )
 			p.m_in_goal[ goal_vec[k] ] = true;
-		Fluent_Vec dummy;
-		p.m_end_operator_id = add_action( p, "(END)", goal_vec, dummy, dummy);
-		p.actions()[ p.m_end_operator_id ]->set_cost( 0 );
+		
+		if ( createEndOp )
+		{
+			Fluent_Vec dummy;
+			p.m_end_operator_id = add_action( p, "(END)", goal_vec, dummy, dummy);
+			p.actions()[ p.m_end_operator_id ]->set_cost( 0 );
+		}
 	}
 
 	void STRIPS_Problem::print_fluent_vec(const Fluent_Vec &a) {

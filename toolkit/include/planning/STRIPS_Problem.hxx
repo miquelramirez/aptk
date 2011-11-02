@@ -43,7 +43,7 @@ namespace aig_tk
 						    Index_Vec& arg_types);
 
 		static void		set_init( STRIPS_Problem& p, Fluent_Vec& init );
-		static void		set_goal( STRIPS_Problem& p, Fluent_Vec& goal );
+		static void		set_goal( STRIPS_Problem& p, Fluent_Vec& goal, bool createEndOp = true );
 
 		Fluent_Ptr_Vec&		fluents() 			{ return m_fluents; }
 		Action_Ptr_Vec&		actions() 			{ return m_actions; }
