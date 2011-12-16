@@ -179,7 +179,7 @@ namespace aig_tk
 		Fluent* new_fluent = new Fluent( p );
 		new_fluent->set_index( p.fluents().size() );
 		new_fluent->set_signature( signature );
-		p.fluentsMap[signature] = p.fluents().size();
+		p.m_fluents_map[signature] = p.fluents().size();
 		p.increase_num_fluents();
 		p.fluents().push_back( new_fluent );
 		return p.fluents().size()-1;
@@ -192,7 +192,7 @@ namespace aig_tk
 		new_fluent->set_index( p.fluents().size() );
 		new_fluent->set_signature( signature );
 		new_fluent->set_predicate( pred_name );
-		p.fluentsMap[pred_name] = p.fluents().size();
+		p.m_fluents_map[pred_name] = p.fluents().size();
 		//NO-OBJECT
 		if( args.empty() ) new_fluent->add_pddl_obj_idx( p.num_objects()-1 );
 		for(unsigned i = 0; i < args.size(); i++)
@@ -254,7 +254,8 @@ namespace aig_tk
 			std::cout << fluents()[a[i]]->signature() << ", ";
 		}
 	}
+
         int STRIPS_Problem::getFluentIndex(std::string signature){
-              return fluentsMap[signature];
+              return m_fluents_map[signature];
         }
 }
