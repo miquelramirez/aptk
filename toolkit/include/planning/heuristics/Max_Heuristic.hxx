@@ -1,5 +1,5 @@
 #ifndef __MAX_HEURISTIC__
-#define __MAX_HEURSITIC__
+#define __MAX_HEURISTIC__
 
 #include <planning/STRIPS_Problem.hxx>
 #include <planning/Types.hxx>

@@ -29,6 +29,12 @@ public:
          * Must implement compute AND eval
          */
 	virtual void    	compute( Fluent_Vec& C ) = 0;
+
+	virtual void		compute_without_supporters( Fluent_Vec& C )
+	{
+		compute(C);
+	}
+
 	virtual Cost_Type	eval( Fluent_Vec& G ) = 0;
         
         

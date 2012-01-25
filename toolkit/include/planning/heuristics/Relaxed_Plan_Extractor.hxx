@@ -54,7 +54,8 @@ void	Relaxed_Plan_Extractor<Heuristic>::initialize( STRIPS_Problem& p )
 template <typename Heuristic>
 unsigned Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
 {
-	heuristic().eval( C, G );
+	heuristic().compute(C);
+	heuristic().eval( G );
 
 	// 0. Initialize data structures
 	actions_seen().reset();
