@@ -3,6 +3,7 @@
 
 #include <string>
 #include <planning/Types.hxx>
+#include <map>
 
 namespace aig_tk
 {
@@ -43,9 +44,10 @@ namespace aig_tk
 						    Index_Vec& arg_types);
 
 		static void		set_init( STRIPS_Problem& p, Fluent_Vec& init );
-		static void		set_goal( STRIPS_Problem& p, Fluent_Vec& goal );
+		static void		set_goal( STRIPS_Problem& p, Fluent_Vec& goal, bool createEndOp = true );
 
-		Fluent_Ptr_Vec&		fluents() 			{ return m_fluents; }
+	  	
+	  Fluent_Ptr_Vec&		fluents() 			{ return m_fluents; }
 		Action_Ptr_Vec&		actions() 			{ return m_actions; }
 		PDDL_Operator_Ptr_Vec&  pddl_ops() 			{ return m_pddl_ops; }
 		PDDL_Type_Ptr_Vec&      types()                         { return m_types; }
@@ -63,6 +65,8 @@ namespace aig_tk
 		bool			is_in_goal( unsigned f )	{ return m_in_goal[f]; }
 		void                    print_fluent_vec(const Fluent_Vec &a);
 		unsigned                end_operator() { return m_end_operator_id; }
+	        int                     getFluentIndex(std::string signature);
+	
 	protected:
 	
 		void			increase_num_fluents()        { m_num_fluents++; }
@@ -101,7 +105,8 @@ namespace aig_tk
 		PDDL_Operator_Ptr_Vec    m_pddl_ops;
 		PDDLop_Action_Table      m_actions_by_pddl_op;
 		PDDL_Type_Object_Table   m_pddl_objects_by_type; 
-	};
+	  	std::map<std::string,int> m_fluents_map;
+	  };
 
 }
 

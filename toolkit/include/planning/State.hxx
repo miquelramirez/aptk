@@ -21,7 +21,9 @@ public:
 	Fluent_Set& fluent_set() { return m_fluent_set; }
 	
 	void	set( unsigned f );
+	void	unset( unsigned f );
 	void	set( Fluent_Vec& fv );
+	void	unset( Fluent_Vec& fv );
 	bool	entails( unsigned f ) { return fluent_set().isset(f); }
 	bool	entails( State& s );
 	bool	entails( Fluent_Vec& fv );
@@ -69,6 +71,42 @@ inline	void State::set( Fluent_Vec& f )
 		}
 	}
 }
+
+inline	void State::unset( unsigned f ) 
+{
+	if ( !entails(f) ) return;
+
+	for ( unsigned k = 0; k < m_fluent_vec.size(); k ++ )
+		if ( m_fluent_vec[k] == f )
+		{
+			for ( unsigned l = k+1; l < m_fluent_vec.size(); l++ )
+				m_fluent_vec[l-1] = m_fluent_vec[l];
+			m_fluent_vec.resize( m_fluent_vec.size()-1 );
+			break;
+		}
+
+	m_fluent_set.unset( f );
+}
+
+inline	void State::unset( Fluent_Vec& f )
+{
+
+	for ( unsigned i = 0; i < f.size(); i++ )
+	{
+		if ( !entails(f[i]) )
+			continue;
+		for ( unsigned k = 0; k < m_fluent_vec.size(); k ++ )
+			if ( m_fluent_vec[k] == f[i] )
+			{
+				for ( unsigned l = k+1; l < m_fluent_vec.size(); l++ )
+					m_fluent_vec[l-1] = m_fluent_vec[l];
+				m_fluent_vec.resize( m_fluent_vec.size()-1 );
+				break;
+			}
+		m_fluent_set.unset(f[i]);
+	}
+}
+
 
 inline bool	State::entails( State& s )
 {

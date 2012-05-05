@@ -5,6 +5,7 @@
 #include <planning/PDDL_Object.hxx>
 #include <planning/PDDL_Operator.hxx>
 #include <cassert>
+#include <map>
 
 namespace aig_tk
 {
@@ -148,7 +149,6 @@ namespace aig_tk
 		m_requiring.resize(f+1);
 	}
 
-	
 	void STRIPS_Problem::add_type( STRIPS_Problem& p, std::string type )
 	{
 
@@ -158,13 +158,11 @@ namespace aig_tk
 		p.increase_num_types();
 		p.types().push_back( new_type );	       
 		
-		p.make_types_table();
-		
+		p.make_types_table();	
 	}
 
 	void STRIPS_Problem::add_object( STRIPS_Problem& p, std::string object, Index_Vec& types_idx )
 	{
-
 
 		PDDL_Object* new_object = new PDDL_Object( p );
 		new_object->set_index( p.objects().size() );
@@ -181,6 +179,7 @@ namespace aig_tk
 		Fluent* new_fluent = new Fluent( p );
 		new_fluent->set_index( p.fluents().size() );
 		new_fluent->set_signature( signature );
+		p.m_fluents_map[signature] = p.fluents().size();
 		p.increase_num_fluents();
 		p.fluents().push_back( new_fluent );
 		return p.fluents().size()-1;
@@ -193,7 +192,7 @@ namespace aig_tk
 		new_fluent->set_index( p.fluents().size() );
 		new_fluent->set_signature( signature );
 		new_fluent->set_predicate( pred_name );
-
+		p.m_fluents_map[pred_name] = p.fluents().size();
 		//NO-OBJECT
 		if( args.empty() ) new_fluent->add_pddl_obj_idx( p.num_objects()-1 );
 		for(unsigned i = 0; i < args.size(); i++)
@@ -215,25 +214,39 @@ namespace aig_tk
 		for ( unsigned k = 0; k < init_vec.size(); k++ )
 			assert( init_vec[k] < p.num_fluents() );
 #endif	
-		p.m_in_init.resize( p.num_fluents(), false );
+		if ( p.m_in_init.empty() )
+		  p.m_in_init.resize( p.num_fluents(), false );
+		else
+		  for ( unsigned k = 0; k < p.num_fluents(); k++ )
+		    p.m_in_init[k] = false;
+
 		p.init().assign( init_vec.begin(), init_vec.end() );
 		for ( unsigned k = 0; k < init_vec.size(); k++ )
 			p.m_in_init[ init_vec[k] ] = true;
 	}
 
-	void	STRIPS_Problem::set_goal( STRIPS_Problem& p, Fluent_Vec& goal_vec )
+	void	STRIPS_Problem::set_goal( STRIPS_Problem& p, Fluent_Vec& goal_vec, bool createEndOp )
 	{
 #ifdef DEBUG
 		for ( unsigned k = 0; k < goal_vec.size(); k++ )
 			assert( goal_vec[k] < p.num_fluents() );
 #endif
-		p.m_in_goal.resize( p.num_fluents(), false );
+		if ( p.m_in_goal.empty() )
+		  p.m_in_goal.resize( p.num_fluents(), false );
+		else
+		  for ( unsigned k = 0; k < p.num_fluents(); k++ )
+		    p.m_in_goal[k] = false;
+
 		p.goal().assign( goal_vec.begin(), goal_vec.end() );
 		for ( unsigned k = 0; k < goal_vec.size(); k++ )
 			p.m_in_goal[ goal_vec[k] ] = true;
-		Fluent_Vec dummy;
-		p.m_end_operator_id = add_action( p, "(END)", goal_vec, dummy, dummy);
-		p.actions()[ p.m_end_operator_id ]->set_cost( 0 );
+		
+		if ( createEndOp )
+		{
+			Fluent_Vec dummy;
+			p.m_end_operator_id = add_action( p, "(END)", goal_vec, dummy, dummy);
+			p.actions()[ p.m_end_operator_id ]->set_cost( 0 );
+		}
 	}
 
 	void STRIPS_Problem::print_fluent_vec(const Fluent_Vec &a) {
@@ -242,4 +255,7 @@ namespace aig_tk
 		}
 	}
 
+        int STRIPS_Problem::getFluentIndex(std::string signature){
+              return m_fluents_map[signature];
+        }
 }
