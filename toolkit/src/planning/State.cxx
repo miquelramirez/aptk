@@ -25,7 +25,7 @@ State* State::progress_through( Action& a )
 	    succ->set( m_fluent_vec[k] );
 	  }
 	}
-	succ->set( a.add_vec() );	
+	succ->set( a.add_vec() );
 
 	return succ;
 }
@@ -39,7 +39,7 @@ State* State::regress_through( Action& a )
 	for ( unsigned k = 0; k < m_fluent_vec.size(); k++ )
 		if ( !a.asserts( m_fluent_vec[k] ) )
 			succ->set( m_fluent_vec[k] );
-	succ->set( a.del_vec() );
+	succ->set( a.prec_vec() );
 
 	return succ;
 }
