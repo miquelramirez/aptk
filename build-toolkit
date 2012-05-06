@@ -2,7 +2,7 @@
 
 
 cd toolkit/lib/libff && \
-(make || exit 1)
+(make depend && make || exit 1)
 cd ../../.. && \
 cd toolkit && \
 (scons || exit 1)

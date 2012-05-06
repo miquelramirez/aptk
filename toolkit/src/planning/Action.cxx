@@ -23,6 +23,13 @@ void Action::define( Fluent_Vec& precs, Fluent_Vec& adds, Fluent_Vec& dels )
 	define_fluent_list( dels, del_vec(), del_set() );
 }
 
+void Action::define( Fluent_Vec& precs, Fluent_Vec& adds, Fluent_Vec& dels, Conditional_Effect_Vec& ceffs )
+{
+	// define the precondition, adds, deletes and conditional effects
+	define( precs, adds, dels );
+	m_cond_effects = ceffs;	
+}
+
 void Action::define_fluent_list(  Fluent_Vec& in, Fluent_Vec& fluent_list, Fluent_Set& fluent_set )
 {
 	for ( unsigned k = 0; k < in.size(); k++ )

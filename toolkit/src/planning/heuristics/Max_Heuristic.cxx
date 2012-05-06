@@ -46,6 +46,31 @@ void Max_Heuristic::compute_without_supporters( Fluent_Vec& C )
 					set_fl_value( actions[k]->add_vec()[l], v );
 					updated.push_back( actions[k]->add_vec()[l] );
 				}
+
+			//d. Update with conditional effects
+			if( !actions[k]->ceff_vec().empty() )
+				for( unsigned i = 0; i < actions[k]->ceff_vec().size(); i++ )
+				{
+					Conditional_Effect* ce = actions[k]->ceff_vec()[i];
+					
+					// a. evaluate precondition
+					Cost_Type h_cond = eval( ce->prec_vec() );
+					
+					// b. cutoff if infty
+					if (h_pre == infty ) continue;
+					
+					// c. update when a is a better support for p \in Add(a)
+					Cost_Type v = actions[k]->cost() + h_pre + h_cond;
+					
+					for ( unsigned l = 0; l < ce->add_vec().size(); l++ )
+					{
+						if ( v < fl_value( ce->add_vec()[l] ) )
+						{
+							set_fl_value( ce->add_vec()[l], v );
+							updated.push_back( ce->add_vec()[l] );
+						}
+					}
+				}
 		}
 	}
 }
@@ -84,6 +109,38 @@ void Max_Heuristic::compute( Fluent_Vec& C )
 				}
 				else if ( v == fl_value( actions[k]->add_vec()[l] ) )
 					best_supporters(actions[k]->add_vec()[l]).push_back( actions[k] );
+
+			//d. Update with conditional effects
+			if( !actions[k]->ceff_vec().empty() )
+				for( unsigned i = 0; i < actions[k]->ceff_vec().size(); i++ )
+				{
+					Conditional_Effect* ce = actions[k]->ceff_vec()[i];
+					
+                                        // a. evaluate precondition
+					Cost_Type h_cond = eval( ce->prec_vec() );
+					
+					// b. cutoff if infty
+					if (h_pre == infty ) continue;
+					
+					// c. update when a is a better support for p \in Add(a)
+					Cost_Type v = actions[k]->cost() + h_pre + h_cond;
+							
+					for ( unsigned l = 0; l < ce->add_vec().size(); l++ )
+						if ( v < fl_value( ce->add_vec()[l] ) )
+						{
+							Conditional_Effect* ce = actions[k]->ceff_vec()[i];
+							for ( unsigned l = 0; l < ce->add_vec().size(); l++ )
+								if ( v < fl_value( ce->add_vec()[l] ) )
+								{
+									set_fl_value( ce->add_vec()[l], v );
+									updated.push_back( ce->add_vec()[l] );
+									set_best_supporter( ce->add_vec()[l], actions[k] );
+									best_supporters(ce->add_vec()[l]).push_back(actions[k] );
+								}
+						}
+						else if ( v == fl_value( ce->add_vec()[l] ) )
+							best_supporters(ce->add_vec()[l]).push_back( actions[k] );
+				}
 
 		}
 	}

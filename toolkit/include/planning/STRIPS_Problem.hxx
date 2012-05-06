@@ -28,10 +28,9 @@ namespace aig_tk
 		static void             add_object( STRIPS_Problem& p, std::string object,
 						    Index_Vec& types_idx);
 		static unsigned		add_action( STRIPS_Problem& p, std::string signature, 
-						    Fluent_Vec& pre, Fluent_Vec& add, Fluent_Vec& del );
-		static unsigned		add_action( STRIPS_Problem& p, std::string signature, 
 						    Fluent_Vec& pre, Fluent_Vec& add, Fluent_Vec& del,
-						    std::string base_name, Index_Vec& args, Index_Vec& arg_types, unsigned pddl_op_idx);
+						    std::string base_name, Index_Vec& args, Index_Vec& arg_types,
+						    unsigned pddl_op_idx, Conditional_Effect_Vec& ceffs);
 		static unsigned 	add_action( STRIPS_Problem& p, std::string signature,
 						    Fluent_Vec& pre, Fluent_Vec& add, Fluent_Vec& del,
 						    Conditional_Effect_Vec& ceffs );

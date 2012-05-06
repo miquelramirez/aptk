@@ -27,6 +27,17 @@ namespace aig_tk
 			actions_adding(a->add_vec()[k]).push_back(a);
 		for ( unsigned k = 0; k < a->del_vec().size(); k++ )
 			actions_deleting(a->del_vec()[k]).push_back(a);	
+		
+		//register conditional effects
+		for ( unsigned i = 0; i < a->ceff_vec().size(); i++ )
+		{
+			for ( unsigned k = 0; k < a->ceff_vec()[i]->prec_vec().size(); k++ )
+				actions_requiring(a->ceff_vec()[i]->prec_vec()[k]).push_back( a );
+			for ( unsigned k = 0; k < a->ceff_vec()[i]->add_vec().size(); k++ )
+				actions_adding(a->ceff_vec()[i]->add_vec()[k]).push_back(a);
+			for ( unsigned k = 0; k < a->ceff_vec()[i]->del_vec().size(); k++ )
+				actions_deleting(a->ceff_vec()[i]->del_vec()[k]).push_back(a);	
+		}
 	}
 
 	void	STRIPS_Problem::register_fluent_in_tables( Fluent* fl )
@@ -84,26 +95,13 @@ namespace aig_tk
 
 	
 	unsigned STRIPS_Problem::add_action( STRIPS_Problem& p, std::string signature,
-					     Fluent_Vec& pre, Fluent_Vec& add, Fluent_Vec& del )
-	{
-		Action* new_act = new Action( p );
-		new_act->set_signature( signature );
-		new_act->define( pre, add, del );
-		p.increase_num_actions();
-		p.actions().push_back( new_act );
-		p.register_action_in_tables( new_act );
-		new_act->set_index( p.actions().size()-1 );
-		return p.actions().size()-1;
-	}
-
-	unsigned STRIPS_Problem::add_action( STRIPS_Problem& p, std::string signature,
 					     Fluent_Vec& pre, Fluent_Vec& add, Fluent_Vec& del,
-					     std::string base_name, Index_Vec& args, Index_Vec& arg_types, unsigned pddl_op_idx )
+					     std::string base_name, Index_Vec& args, Index_Vec& arg_types, unsigned pddl_op_idx, Conditional_Effect_Vec& ceffs )
 	{
 		Action* new_act = new Action( p );
 		new_act->set_signature( signature );
 		new_act->set_name( base_name );
-		new_act->define( pre, add, del );
+		new_act->define( pre, add, del, ceffs );
 		new_act->set_pddl_op_idx( pddl_op_idx );
 
 		//NO-OBJECT
@@ -129,7 +127,7 @@ namespace aig_tk
 	{
 		Action* new_act = new Action( p );
 		new_act->set_signature( signature );
-		new_act->define( pre, add, del );
+		new_act->define( pre, add, del, ceffs );
 		p.increase_num_actions();
 		p.actions().push_back( new_act );
 		new_act->set_index( p.actions().size()-1 );
@@ -244,7 +242,8 @@ namespace aig_tk
 		if ( createEndOp )
 		{
 			Fluent_Vec dummy;
-			p.m_end_operator_id = add_action( p, "(END)", goal_vec, dummy, dummy);
+			Conditional_Effect_Vec dummy_ceffs;
+			p.m_end_operator_id = add_action( p, "(END)", goal_vec, dummy, dummy, dummy_ceffs);
 			p.actions()[ p.m_end_operator_id ]->set_cost( 0 );
 		}
 	}

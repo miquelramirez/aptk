@@ -34,6 +34,8 @@ private:
 inline Cost_Type Max_Heuristic::eval( Fluent_Vec& C )
 {
 	// 3. Evaluate heuristic values for C
+	if( C.empty() ) return 0;
+
 	Cost_Type h = fl_value(C[0]);	
 
 	for ( unsigned k = 1; k < C.size(); k++ )

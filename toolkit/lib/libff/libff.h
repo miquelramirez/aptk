@@ -39,10 +39,33 @@ namespace FF
 		return gef_conn[index].cost + gtt;
 	}
 
+	inline std::string	get_op_name( Action *a )
+	{
+		int i;
+		std::string str;	
+
+		if ( !a->norm_operator && !a->pseudo_action ) 
+		{
+			return std::string( "(REACH-GOAL)" );
+		}
+		str += "(";
+		str += a->name;
+		str += " ";
+		for ( i = 0; i < a->num_name_vars; i++ ) 
+		{
+			str += gconstants[a->name_inst_table[i]];
+			if ( i < a->num_name_vars-1 )
+				str += " ";
+		}
+		str += ")";
+		return str;
+	}
+
 	inline std::string	get_op_name( int index )
 	{
 		int i;
-		Action *a = gop_conn[index].action;
+		int op = gef_conn[index].op;
+		Action *a = gop_conn[op].action;
 		std::string str;	
 
 		if ( !a->norm_operator && !a->pseudo_action ) 
@@ -109,7 +132,8 @@ namespace FF
 	{
 
 		int i;
-		Action *a = gop_conn[index].action;
+		int op = gef_conn[index].op;
+		Action *a = gop_conn[op].action;
 
 		if ( !a->norm_operator && !a->pseudo_action ) 
 			return ;
@@ -132,9 +156,48 @@ namespace FF
 	
 	}
 
+	inline void 		get_op_arg_list( Action* a, std::vector<unsigned>& args, 
+						 std::vector<unsigned>& args_type,
+						 unsigned& pddl_op_idx)
+	{
+
+		int i;
+
+		if ( !a->norm_operator && !a->pseudo_action ) 
+			return ;
+
+		PDDLOperator *pddl_a = ( a->pseudo_action == NULL ) ? a->norm_operator->pddloperator : a->pseudo_action->pddloperator;
+		for ( i = 0; i < a->num_name_vars; i++ ) 
+		{
+			args.push_back( a->name_inst_table[i] );
+			args_type.push_back( pddl_a->var_types[ i ] );
+		}
+
+		for( i = 0; i < gnum_operators; i++ )
+		{
+			if( goperators[ i ] == pddl_a )
+			{
+				pddl_op_idx = i;
+				break;
+			}
+		}
+	
+	}
+
+	inline std::string	get_op_base_name( Action* a )
+	{
+		if ( !a->norm_operator && !a->pseudo_action ) 
+		{
+			return std::string( "(REACH-GOAL)" );
+		}
+
+		return std::string( a->name );
+	}
+
 	inline std::string	get_op_base_name( int index )
 	{
-		Action *a = gop_conn[index].action;
+		int op = gef_conn[index].op;
+		Action *a = gop_conn[op].action;
 
 		if ( !a->norm_operator && !a->pseudo_action ) 
 		{

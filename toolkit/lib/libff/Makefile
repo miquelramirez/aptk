@@ -112,475 +112,586 @@ lint:
 
 # DO NOT DELETE
 
-main.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-main.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-main.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-main.o: /usr/include/sys/types.h /usr/include/bits/types.h
-main.o: /usr/include/bits/typesizes.h /usr/include/time.h
-main.o: /usr/include/endian.h /usr/include/bits/endian.h
-main.o: /usr/include/sys/select.h /usr/include/bits/select.h
-main.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-main.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-main.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-main.o: /usr/include/_G_config.h /usr/include/wchar.h
-main.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-main.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/sys/timeb.h
-main.o: /usr/include/sys/times.h memory.h /usr/include/string.h output.h
+main.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+main.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+main.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+main.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+main.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+main.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+main.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+main.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+main.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+main.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+main.o: /usr/include/libkern/_OSByteOrder.h
+main.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+main.o: /usr/include/machine/types.h /usr/include/i386/types.h
+main.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+main.o: /usr/include/secure/_common.h /usr/include/strings.h
+main.o: /usr/include/string.h /usr/include/secure/_string.h
+main.o: /usr/include/ctype.h /usr/include/runetype.h /usr/include/sys/types.h
+main.o: /usr/include/sys/timeb.h /usr/include/sys/times.h memory.h output.h
 main.o: parse.h expressions.h inst_pre.h inst_easy.h inst_hard.h inst_final.h
 main.o: relax.h search.h
-memory.o: /usr/include/string.h /usr/include/features.h
-memory.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-memory.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h ff.h
-memory.o: /usr/include/stdlib.h /usr/include/sys/types.h
-memory.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-memory.o: /usr/include/time.h /usr/include/endian.h
-memory.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-memory.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-memory.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-memory.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-memory.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
-memory.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-memory.o: /usr/include/bits/sys_errlist.h /usr/include/strings.h
-memory.o: /usr/include/ctype.h /usr/include/sys/timeb.h
+memory.o: /usr/include/string.h /usr/include/_types.h
+memory.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+memory.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+memory.o: /usr/include/secure/_string.h /usr/include/secure/_common.h ff.h
+memory.o: /usr/include/stdlib.h /usr/include/Availability.h
+memory.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+memory.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+memory.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+memory.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+memory.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+memory.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+memory.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+memory.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+memory.o: /usr/include/machine/types.h /usr/include/i386/types.h
+memory.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+memory.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/runetype.h
+memory.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
 memory.o: /usr/include/sys/times.h memory.h inst_pre.h
-output.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-output.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-output.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-output.o: /usr/include/sys/types.h /usr/include/bits/types.h
-output.o: /usr/include/bits/typesizes.h /usr/include/time.h
-output.o: /usr/include/endian.h /usr/include/bits/endian.h
-output.o: /usr/include/sys/select.h /usr/include/bits/select.h
-output.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-output.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-output.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-output.o: /usr/include/_G_config.h /usr/include/wchar.h
-output.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-output.o: /usr/include/strings.h /usr/include/ctype.h
-output.o: /usr/include/sys/timeb.h /usr/include/sys/times.h utility.h
-output.o: output.h
-parse.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-parse.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-parse.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-parse.o: /usr/include/sys/types.h /usr/include/bits/types.h
-parse.o: /usr/include/bits/typesizes.h /usr/include/time.h
-parse.o: /usr/include/endian.h /usr/include/bits/endian.h
-parse.o: /usr/include/sys/select.h /usr/include/bits/select.h
-parse.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-parse.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-parse.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-parse.o: /usr/include/_G_config.h /usr/include/wchar.h
-parse.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-parse.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/sys/timeb.h
-parse.o: /usr/include/sys/times.h memory.h /usr/include/string.h output.h
-parse.o: parse.h
-expressions.o: /usr/include/string.h /usr/include/features.h
-expressions.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-expressions.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h ff.h
-expressions.o: /usr/include/stdlib.h /usr/include/sys/types.h
-expressions.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-expressions.o: /usr/include/time.h /usr/include/endian.h
-expressions.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-expressions.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-expressions.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-expressions.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-expressions.o: /usr/include/stdio.h /usr/include/libio.h
-expressions.o: /usr/include/_G_config.h /usr/include/wchar.h
-expressions.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+output.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+output.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+output.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+output.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+output.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+output.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+output.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+output.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+output.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+output.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+output.o: /usr/include/libkern/_OSByteOrder.h
+output.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+output.o: /usr/include/machine/types.h /usr/include/i386/types.h
+output.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+output.o: /usr/include/secure/_common.h /usr/include/strings.h
+output.o: /usr/include/string.h /usr/include/secure/_string.h
+output.o: /usr/include/ctype.h /usr/include/runetype.h
+output.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+output.o: /usr/include/sys/times.h utility.h output.h
+parse.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+parse.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+parse.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+parse.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+parse.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+parse.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+parse.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+parse.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+parse.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+parse.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+parse.o: /usr/include/libkern/_OSByteOrder.h
+parse.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+parse.o: /usr/include/machine/types.h /usr/include/i386/types.h
+parse.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+parse.o: /usr/include/secure/_common.h /usr/include/strings.h
+parse.o: /usr/include/string.h /usr/include/secure/_string.h
+parse.o: /usr/include/ctype.h /usr/include/runetype.h
+parse.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+parse.o: /usr/include/sys/times.h memory.h output.h parse.h
+expressions.o: /usr/include/string.h /usr/include/_types.h
+expressions.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+expressions.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+expressions.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+expressions.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+expressions.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+expressions.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+expressions.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+expressions.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+expressions.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+expressions.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+expressions.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+expressions.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+expressions.o: /usr/include/machine/types.h /usr/include/i386/types.h
+expressions.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
 expressions.o: /usr/include/strings.h /usr/include/ctype.h
+expressions.o: /usr/include/runetype.h /usr/include/sys/types.h
 expressions.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
 expressions.o: memory.h expressions.h
-inst_pre.o: /usr/include/string.h /usr/include/features.h
-inst_pre.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_pre.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h ff.h
-inst_pre.o: /usr/include/stdlib.h /usr/include/sys/types.h
-inst_pre.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-inst_pre.o: /usr/include/time.h /usr/include/endian.h
-inst_pre.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-inst_pre.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-inst_pre.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-inst_pre.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-inst_pre.o: /usr/include/stdio.h /usr/include/libio.h
-inst_pre.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_pre.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+inst_pre.o: /usr/include/string.h /usr/include/_types.h
+inst_pre.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_pre.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_pre.o: /usr/include/secure/_string.h /usr/include/secure/_common.h ff.h
+inst_pre.o: /usr/include/stdlib.h /usr/include/Availability.h
+inst_pre.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+inst_pre.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+inst_pre.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+inst_pre.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+inst_pre.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+inst_pre.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+inst_pre.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+inst_pre.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_pre.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_pre.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
 inst_pre.o: /usr/include/strings.h /usr/include/ctype.h
+inst_pre.o: /usr/include/runetype.h /usr/include/sys/types.h
 inst_pre.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
 inst_pre.o: memory.h expressions.h inst_pre.h
-inst_easy.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-inst_easy.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_easy.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-inst_easy.o: /usr/include/sys/types.h /usr/include/bits/types.h
-inst_easy.o: /usr/include/bits/typesizes.h /usr/include/time.h
-inst_easy.o: /usr/include/endian.h /usr/include/bits/endian.h
-inst_easy.o: /usr/include/sys/select.h /usr/include/bits/select.h
-inst_easy.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-inst_easy.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-inst_easy.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-inst_easy.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_easy.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-inst_easy.o: /usr/include/strings.h /usr/include/ctype.h
-inst_easy.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
-inst_easy.o: memory.h /usr/include/string.h expressions.h inst_pre.h
-inst_easy.o: inst_easy.h
-inst_hard.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-inst_hard.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_hard.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-inst_hard.o: /usr/include/sys/types.h /usr/include/bits/types.h
-inst_hard.o: /usr/include/bits/typesizes.h /usr/include/time.h
-inst_hard.o: /usr/include/endian.h /usr/include/bits/endian.h
-inst_hard.o: /usr/include/sys/select.h /usr/include/bits/select.h
-inst_hard.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-inst_hard.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-inst_hard.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-inst_hard.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_hard.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-inst_hard.o: /usr/include/strings.h /usr/include/ctype.h
-inst_hard.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
-inst_hard.o: memory.h /usr/include/string.h expressions.h inst_pre.h
-inst_hard.o: inst_hard.h
-inst_final.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-inst_final.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_final.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-inst_final.o: /usr/include/sys/types.h /usr/include/bits/types.h
-inst_final.o: /usr/include/bits/typesizes.h /usr/include/time.h
-inst_final.o: /usr/include/endian.h /usr/include/bits/endian.h
-inst_final.o: /usr/include/sys/select.h /usr/include/bits/select.h
-inst_final.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-inst_final.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-inst_final.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-inst_final.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_final.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-inst_final.o: /usr/include/strings.h /usr/include/ctype.h
-inst_final.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
-inst_final.o: memory.h /usr/include/string.h expressions.h inst_pre.h
-inst_final.o: inst_final.h
-relax.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-relax.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-relax.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-relax.o: /usr/include/sys/types.h /usr/include/bits/types.h
-relax.o: /usr/include/bits/typesizes.h /usr/include/time.h
-relax.o: /usr/include/endian.h /usr/include/bits/endian.h
-relax.o: /usr/include/sys/select.h /usr/include/bits/select.h
-relax.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-relax.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-relax.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-relax.o: /usr/include/_G_config.h /usr/include/wchar.h
-relax.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-relax.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/sys/timeb.h
-relax.o: /usr/include/sys/times.h output.h memory.h /usr/include/string.h
-relax.o: expressions.h relax.h search.h
-search.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-search.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-search.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-search.o: /usr/include/sys/types.h /usr/include/bits/types.h
-search.o: /usr/include/bits/typesizes.h /usr/include/time.h
-search.o: /usr/include/endian.h /usr/include/bits/endian.h
-search.o: /usr/include/sys/select.h /usr/include/bits/select.h
-search.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-search.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-search.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-search.o: /usr/include/_G_config.h /usr/include/wchar.h
-search.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-search.o: /usr/include/strings.h /usr/include/ctype.h
-search.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h memory.h
-search.o: /usr/include/string.h expressions.h relax.h search.h
-utility.o: /usr/include/string.h /usr/include/features.h
-utility.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-utility.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h utility.h
-utility.o: ff.h /usr/include/stdlib.h /usr/include/sys/types.h
-utility.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-utility.o: /usr/include/time.h /usr/include/endian.h
-utility.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-utility.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-utility.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-utility.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-utility.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
-utility.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-utility.o: /usr/include/bits/sys_errlist.h /usr/include/strings.h
-utility.o: /usr/include/ctype.h /usr/include/sys/timeb.h
-utility.o: /usr/include/sys/times.h output.h
-libff.o: libff.h ff.h /usr/include/stdlib.h /usr/include/features.h
-libff.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-libff.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-libff.o: /usr/include/sys/types.h /usr/include/bits/types.h
-libff.o: /usr/include/bits/typesizes.h /usr/include/time.h
-libff.o: /usr/include/endian.h /usr/include/bits/endian.h
-libff.o: /usr/include/sys/select.h /usr/include/bits/select.h
-libff.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-libff.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-libff.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-libff.o: /usr/include/_G_config.h /usr/include/wchar.h
-libff.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-libff.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/sys/timeb.h
-libff.o: /usr/include/sys/times.h memory.h /usr/include/string.h output.h
-libff.o: parse.h expressions.h inst_pre.h inst_easy.h inst_hard.h
-libff.o: inst_final.h
-memory.o: /usr/include/string.h /usr/include/features.h
-memory.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-memory.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h ff.h
-memory.o: /usr/include/stdlib.h /usr/include/sys/types.h
-memory.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-memory.o: /usr/include/time.h /usr/include/endian.h
-memory.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-memory.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-memory.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-memory.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-memory.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
-memory.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-memory.o: /usr/include/bits/sys_errlist.h /usr/include/strings.h
-memory.o: /usr/include/ctype.h /usr/include/sys/timeb.h
+inst_easy.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+inst_easy.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+inst_easy.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_easy.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_easy.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+inst_easy.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+inst_easy.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+inst_easy.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+inst_easy.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+inst_easy.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+inst_easy.o: /usr/include/libkern/_OSByteOrder.h
+inst_easy.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_easy.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_easy.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+inst_easy.o: /usr/include/secure/_common.h /usr/include/strings.h
+inst_easy.o: /usr/include/string.h /usr/include/secure/_string.h
+inst_easy.o: /usr/include/ctype.h /usr/include/runetype.h
+inst_easy.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+inst_easy.o: /usr/include/sys/times.h output.h memory.h expressions.h
+inst_easy.o: inst_pre.h inst_easy.h
+inst_hard.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+inst_hard.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+inst_hard.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_hard.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_hard.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+inst_hard.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+inst_hard.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+inst_hard.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+inst_hard.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+inst_hard.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+inst_hard.o: /usr/include/libkern/_OSByteOrder.h
+inst_hard.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_hard.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_hard.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+inst_hard.o: /usr/include/secure/_common.h /usr/include/strings.h
+inst_hard.o: /usr/include/string.h /usr/include/secure/_string.h
+inst_hard.o: /usr/include/ctype.h /usr/include/runetype.h
+inst_hard.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+inst_hard.o: /usr/include/sys/times.h output.h memory.h expressions.h
+inst_hard.o: inst_pre.h inst_hard.h
+inst_final.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+inst_final.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+inst_final.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_final.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_final.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+inst_final.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+inst_final.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+inst_final.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+inst_final.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+inst_final.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+inst_final.o: /usr/include/libkern/_OSByteOrder.h
+inst_final.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_final.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_final.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+inst_final.o: /usr/include/secure/_common.h /usr/include/strings.h
+inst_final.o: /usr/include/string.h /usr/include/secure/_string.h
+inst_final.o: /usr/include/ctype.h /usr/include/runetype.h
+inst_final.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+inst_final.o: /usr/include/sys/times.h output.h memory.h expressions.h
+inst_final.o: inst_pre.h inst_final.h
+relax.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+relax.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+relax.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+relax.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+relax.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+relax.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+relax.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+relax.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+relax.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+relax.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+relax.o: /usr/include/libkern/_OSByteOrder.h
+relax.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+relax.o: /usr/include/machine/types.h /usr/include/i386/types.h
+relax.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+relax.o: /usr/include/secure/_common.h /usr/include/strings.h
+relax.o: /usr/include/string.h /usr/include/secure/_string.h
+relax.o: /usr/include/ctype.h /usr/include/runetype.h
+relax.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+relax.o: /usr/include/sys/times.h output.h memory.h expressions.h relax.h
+relax.o: search.h
+search.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+search.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+search.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+search.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+search.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+search.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+search.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+search.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+search.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+search.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+search.o: /usr/include/libkern/_OSByteOrder.h
+search.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+search.o: /usr/include/machine/types.h /usr/include/i386/types.h
+search.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+search.o: /usr/include/secure/_common.h /usr/include/strings.h
+search.o: /usr/include/string.h /usr/include/secure/_string.h
+search.o: /usr/include/ctype.h /usr/include/runetype.h
+search.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+search.o: /usr/include/sys/times.h output.h memory.h expressions.h relax.h
+search.o: search.h
+utility.o: /usr/include/string.h /usr/include/_types.h
+utility.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+utility.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+utility.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+utility.o: utility.h ff.h /usr/include/stdlib.h /usr/include/Availability.h
+utility.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+utility.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+utility.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+utility.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+utility.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+utility.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+utility.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+utility.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+utility.o: /usr/include/machine/types.h /usr/include/i386/types.h
+utility.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+utility.o: /usr/include/strings.h /usr/include/ctype.h
+utility.o: /usr/include/runetype.h /usr/include/sys/types.h
+utility.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
+libff.o: libff.h ff.h /usr/include/stdlib.h /usr/include/Availability.h
+libff.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+libff.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+libff.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+libff.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+libff.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+libff.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+libff.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+libff.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+libff.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+libff.o: /usr/include/libkern/_OSByteOrder.h
+libff.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+libff.o: /usr/include/machine/types.h /usr/include/i386/types.h
+libff.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+libff.o: /usr/include/secure/_common.h /usr/include/strings.h
+libff.o: /usr/include/string.h /usr/include/secure/_string.h
+libff.o: /usr/include/ctype.h /usr/include/runetype.h
+libff.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+libff.o: /usr/include/sys/times.h memory.h output.h parse.h expressions.h
+libff.o: inst_pre.h inst_easy.h inst_hard.h inst_final.h
+memory.o: /usr/include/string.h /usr/include/_types.h
+memory.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+memory.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+memory.o: /usr/include/secure/_string.h /usr/include/secure/_common.h ff.h
+memory.o: /usr/include/stdlib.h /usr/include/Availability.h
+memory.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+memory.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+memory.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+memory.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+memory.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+memory.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+memory.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+memory.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+memory.o: /usr/include/machine/types.h /usr/include/i386/types.h
+memory.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+memory.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/runetype.h
+memory.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
 memory.o: /usr/include/sys/times.h memory.h inst_pre.h
-output.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-output.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-output.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-output.o: /usr/include/sys/types.h /usr/include/bits/types.h
-output.o: /usr/include/bits/typesizes.h /usr/include/time.h
-output.o: /usr/include/endian.h /usr/include/bits/endian.h
-output.o: /usr/include/sys/select.h /usr/include/bits/select.h
-output.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-output.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-output.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-output.o: /usr/include/_G_config.h /usr/include/wchar.h
-output.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-output.o: /usr/include/strings.h /usr/include/ctype.h
-output.o: /usr/include/sys/timeb.h /usr/include/sys/times.h utility.h
-output.o: output.h
-parse.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-parse.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-parse.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-parse.o: /usr/include/sys/types.h /usr/include/bits/types.h
-parse.o: /usr/include/bits/typesizes.h /usr/include/time.h
-parse.o: /usr/include/endian.h /usr/include/bits/endian.h
-parse.o: /usr/include/sys/select.h /usr/include/bits/select.h
-parse.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-parse.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-parse.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-parse.o: /usr/include/_G_config.h /usr/include/wchar.h
-parse.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-parse.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/sys/timeb.h
-parse.o: /usr/include/sys/times.h memory.h /usr/include/string.h output.h
-parse.o: parse.h
-expressions.o: /usr/include/string.h /usr/include/features.h
-expressions.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-expressions.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h ff.h
-expressions.o: /usr/include/stdlib.h /usr/include/sys/types.h
-expressions.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-expressions.o: /usr/include/time.h /usr/include/endian.h
-expressions.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-expressions.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-expressions.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-expressions.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-expressions.o: /usr/include/stdio.h /usr/include/libio.h
-expressions.o: /usr/include/_G_config.h /usr/include/wchar.h
-expressions.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+output.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+output.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+output.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+output.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+output.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+output.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+output.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+output.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+output.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+output.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+output.o: /usr/include/libkern/_OSByteOrder.h
+output.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+output.o: /usr/include/machine/types.h /usr/include/i386/types.h
+output.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+output.o: /usr/include/secure/_common.h /usr/include/strings.h
+output.o: /usr/include/string.h /usr/include/secure/_string.h
+output.o: /usr/include/ctype.h /usr/include/runetype.h
+output.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+output.o: /usr/include/sys/times.h utility.h output.h
+parse.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+parse.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+parse.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+parse.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+parse.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+parse.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+parse.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+parse.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+parse.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+parse.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+parse.o: /usr/include/libkern/_OSByteOrder.h
+parse.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+parse.o: /usr/include/machine/types.h /usr/include/i386/types.h
+parse.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+parse.o: /usr/include/secure/_common.h /usr/include/strings.h
+parse.o: /usr/include/string.h /usr/include/secure/_string.h
+parse.o: /usr/include/ctype.h /usr/include/runetype.h
+parse.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+parse.o: /usr/include/sys/times.h memory.h output.h parse.h
+expressions.o: /usr/include/string.h /usr/include/_types.h
+expressions.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+expressions.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+expressions.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+expressions.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+expressions.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+expressions.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+expressions.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+expressions.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+expressions.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+expressions.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+expressions.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+expressions.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+expressions.o: /usr/include/machine/types.h /usr/include/i386/types.h
+expressions.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
 expressions.o: /usr/include/strings.h /usr/include/ctype.h
+expressions.o: /usr/include/runetype.h /usr/include/sys/types.h
 expressions.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
 expressions.o: memory.h expressions.h
-inst_pre.o: /usr/include/string.h /usr/include/features.h
-inst_pre.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_pre.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h ff.h
-inst_pre.o: /usr/include/stdlib.h /usr/include/sys/types.h
-inst_pre.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-inst_pre.o: /usr/include/time.h /usr/include/endian.h
-inst_pre.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-inst_pre.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-inst_pre.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-inst_pre.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-inst_pre.o: /usr/include/stdio.h /usr/include/libio.h
-inst_pre.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_pre.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+inst_pre.o: /usr/include/string.h /usr/include/_types.h
+inst_pre.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_pre.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_pre.o: /usr/include/secure/_string.h /usr/include/secure/_common.h ff.h
+inst_pre.o: /usr/include/stdlib.h /usr/include/Availability.h
+inst_pre.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+inst_pre.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+inst_pre.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+inst_pre.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+inst_pre.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+inst_pre.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+inst_pre.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+inst_pre.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_pre.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_pre.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
 inst_pre.o: /usr/include/strings.h /usr/include/ctype.h
+inst_pre.o: /usr/include/runetype.h /usr/include/sys/types.h
 inst_pre.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
 inst_pre.o: memory.h expressions.h inst_pre.h
-inst_easy.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-inst_easy.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_easy.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-inst_easy.o: /usr/include/sys/types.h /usr/include/bits/types.h
-inst_easy.o: /usr/include/bits/typesizes.h /usr/include/time.h
-inst_easy.o: /usr/include/endian.h /usr/include/bits/endian.h
-inst_easy.o: /usr/include/sys/select.h /usr/include/bits/select.h
-inst_easy.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-inst_easy.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-inst_easy.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-inst_easy.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_easy.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-inst_easy.o: /usr/include/strings.h /usr/include/ctype.h
-inst_easy.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
-inst_easy.o: memory.h /usr/include/string.h expressions.h inst_pre.h
-inst_easy.o: inst_easy.h
-inst_hard.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-inst_hard.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_hard.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-inst_hard.o: /usr/include/sys/types.h /usr/include/bits/types.h
-inst_hard.o: /usr/include/bits/typesizes.h /usr/include/time.h
-inst_hard.o: /usr/include/endian.h /usr/include/bits/endian.h
-inst_hard.o: /usr/include/sys/select.h /usr/include/bits/select.h
-inst_hard.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-inst_hard.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-inst_hard.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-inst_hard.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_hard.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-inst_hard.o: /usr/include/strings.h /usr/include/ctype.h
-inst_hard.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
-inst_hard.o: memory.h /usr/include/string.h expressions.h inst_pre.h
-inst_hard.o: inst_hard.h
-inst_final.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-inst_final.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-inst_final.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-inst_final.o: /usr/include/sys/types.h /usr/include/bits/types.h
-inst_final.o: /usr/include/bits/typesizes.h /usr/include/time.h
-inst_final.o: /usr/include/endian.h /usr/include/bits/endian.h
-inst_final.o: /usr/include/sys/select.h /usr/include/bits/select.h
-inst_final.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-inst_final.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-inst_final.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-inst_final.o: /usr/include/_G_config.h /usr/include/wchar.h
-inst_final.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-inst_final.o: /usr/include/strings.h /usr/include/ctype.h
-inst_final.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
-inst_final.o: memory.h /usr/include/string.h expressions.h inst_pre.h
-inst_final.o: inst_final.h
-relax.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-relax.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-relax.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-relax.o: /usr/include/sys/types.h /usr/include/bits/types.h
-relax.o: /usr/include/bits/typesizes.h /usr/include/time.h
-relax.o: /usr/include/endian.h /usr/include/bits/endian.h
-relax.o: /usr/include/sys/select.h /usr/include/bits/select.h
-relax.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-relax.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-relax.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-relax.o: /usr/include/_G_config.h /usr/include/wchar.h
-relax.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-relax.o: /usr/include/strings.h /usr/include/ctype.h /usr/include/sys/timeb.h
-relax.o: /usr/include/sys/times.h output.h memory.h /usr/include/string.h
-relax.o: expressions.h relax.h search.h
-search.o: ff.h /usr/include/stdlib.h /usr/include/features.h
-search.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-search.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-search.o: /usr/include/sys/types.h /usr/include/bits/types.h
-search.o: /usr/include/bits/typesizes.h /usr/include/time.h
-search.o: /usr/include/endian.h /usr/include/bits/endian.h
-search.o: /usr/include/sys/select.h /usr/include/bits/select.h
-search.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-search.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-search.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-search.o: /usr/include/_G_config.h /usr/include/wchar.h
-search.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-search.o: /usr/include/strings.h /usr/include/ctype.h
-search.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h memory.h
-search.o: /usr/include/string.h expressions.h relax.h search.h
-utility.o: /usr/include/string.h /usr/include/features.h
-utility.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-utility.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h utility.h
-utility.o: ff.h /usr/include/stdlib.h /usr/include/sys/types.h
-utility.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-utility.o: /usr/include/time.h /usr/include/endian.h
-utility.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-utility.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-utility.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-utility.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-utility.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
-utility.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-utility.o: /usr/include/bits/sys_errlist.h /usr/include/strings.h
-utility.o: /usr/include/ctype.h /usr/include/sys/timeb.h
-utility.o: /usr/include/sys/times.h output.h
-scan-fct_pddl.tab.o: /usr/include/stdio.h /usr/include/features.h
-scan-fct_pddl.tab.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-scan-fct_pddl.tab.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-scan-fct_pddl.tab.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-scan-fct_pddl.tab.o: /usr/include/libio.h /usr/include/_G_config.h
-scan-fct_pddl.tab.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-scan-fct_pddl.tab.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-scan-fct_pddl.tab.o: ff.h /usr/include/stdlib.h /usr/include/sys/types.h
-scan-fct_pddl.tab.o: /usr/include/time.h /usr/include/endian.h
-scan-fct_pddl.tab.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-scan-fct_pddl.tab.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-scan-fct_pddl.tab.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-scan-fct_pddl.tab.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-scan-fct_pddl.tab.o: /usr/include/strings.h /usr/include/ctype.h
-scan-fct_pddl.tab.o: /usr/include/sys/timeb.h /usr/include/sys/times.h
-scan-fct_pddl.tab.o: memory.h parse.h lex.fct_pddl.c /usr/include/errno.h
-scan-fct_pddl.tab.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
-scan-fct_pddl.tab.o: /usr/include/asm/errno.h
-scan-fct_pddl.tab.o: /usr/include/asm-generic/errno.h
-scan-fct_pddl.tab.o: /usr/include/asm-generic/errno-base.h
-scan-fct_pddl.tab.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
-scan-fct_pddl.tab.o: /usr/include/bits/confname.h /usr/include/getopt.h
-scan-ops_pddl.tab.o: /usr/include/stdio.h /usr/include/features.h
-scan-ops_pddl.tab.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-scan-ops_pddl.tab.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-scan-ops_pddl.tab.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-scan-ops_pddl.tab.o: /usr/include/libio.h /usr/include/_G_config.h
-scan-ops_pddl.tab.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-scan-ops_pddl.tab.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-scan-ops_pddl.tab.o: ff.h /usr/include/stdlib.h /usr/include/sys/types.h
-scan-ops_pddl.tab.o: /usr/include/time.h /usr/include/endian.h
-scan-ops_pddl.tab.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-scan-ops_pddl.tab.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-scan-ops_pddl.tab.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-scan-ops_pddl.tab.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-scan-ops_pddl.tab.o: /usr/include/strings.h /usr/include/ctype.h
-scan-ops_pddl.tab.o: /usr/include/sys/timeb.h /usr/include/sys/times.h
-scan-ops_pddl.tab.o: memory.h parse.h lex.ops_pddl.c /usr/include/errno.h
-scan-ops_pddl.tab.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
-scan-ops_pddl.tab.o: /usr/include/asm/errno.h
-scan-ops_pddl.tab.o: /usr/include/asm-generic/errno.h
-scan-ops_pddl.tab.o: /usr/include/asm-generic/errno-base.h
-scan-ops_pddl.tab.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
-scan-ops_pddl.tab.o: /usr/include/bits/confname.h /usr/include/getopt.h
-lex.fct_pddl.o: /usr/include/stdio.h /usr/include/features.h
-lex.fct_pddl.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-lex.fct_pddl.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-lex.fct_pddl.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-lex.fct_pddl.o: /usr/include/libio.h /usr/include/_G_config.h
-lex.fct_pddl.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-lex.fct_pddl.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-lex.fct_pddl.o: /usr/include/errno.h /usr/include/bits/errno.h
-lex.fct_pddl.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
-lex.fct_pddl.o: /usr/include/asm-generic/errno.h
-lex.fct_pddl.o: /usr/include/asm-generic/errno-base.h /usr/include/stdlib.h
-lex.fct_pddl.o: /usr/include/sys/types.h /usr/include/time.h
-lex.fct_pddl.o: /usr/include/endian.h /usr/include/bits/endian.h
-lex.fct_pddl.o: /usr/include/sys/select.h /usr/include/bits/select.h
-lex.fct_pddl.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-lex.fct_pddl.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-lex.fct_pddl.o: /usr/include/alloca.h ff.h /usr/include/strings.h
-lex.fct_pddl.o: /usr/include/ctype.h /usr/include/sys/timeb.h
+inst_easy.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+inst_easy.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+inst_easy.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_easy.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_easy.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+inst_easy.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+inst_easy.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+inst_easy.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+inst_easy.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+inst_easy.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+inst_easy.o: /usr/include/libkern/_OSByteOrder.h
+inst_easy.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_easy.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_easy.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+inst_easy.o: /usr/include/secure/_common.h /usr/include/strings.h
+inst_easy.o: /usr/include/string.h /usr/include/secure/_string.h
+inst_easy.o: /usr/include/ctype.h /usr/include/runetype.h
+inst_easy.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+inst_easy.o: /usr/include/sys/times.h output.h memory.h expressions.h
+inst_easy.o: inst_pre.h inst_easy.h
+inst_hard.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+inst_hard.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+inst_hard.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_hard.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_hard.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+inst_hard.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+inst_hard.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+inst_hard.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+inst_hard.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+inst_hard.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+inst_hard.o: /usr/include/libkern/_OSByteOrder.h
+inst_hard.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_hard.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_hard.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+inst_hard.o: /usr/include/secure/_common.h /usr/include/strings.h
+inst_hard.o: /usr/include/string.h /usr/include/secure/_string.h
+inst_hard.o: /usr/include/ctype.h /usr/include/runetype.h
+inst_hard.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+inst_hard.o: /usr/include/sys/times.h output.h memory.h expressions.h
+inst_hard.o: inst_pre.h inst_hard.h
+inst_final.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+inst_final.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+inst_final.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+inst_final.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+inst_final.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+inst_final.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+inst_final.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+inst_final.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+inst_final.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+inst_final.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+inst_final.o: /usr/include/libkern/_OSByteOrder.h
+inst_final.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+inst_final.o: /usr/include/machine/types.h /usr/include/i386/types.h
+inst_final.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+inst_final.o: /usr/include/secure/_common.h /usr/include/strings.h
+inst_final.o: /usr/include/string.h /usr/include/secure/_string.h
+inst_final.o: /usr/include/ctype.h /usr/include/runetype.h
+inst_final.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+inst_final.o: /usr/include/sys/times.h output.h memory.h expressions.h
+inst_final.o: inst_pre.h inst_final.h
+relax.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+relax.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+relax.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+relax.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+relax.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+relax.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+relax.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+relax.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+relax.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+relax.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+relax.o: /usr/include/libkern/_OSByteOrder.h
+relax.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+relax.o: /usr/include/machine/types.h /usr/include/i386/types.h
+relax.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+relax.o: /usr/include/secure/_common.h /usr/include/strings.h
+relax.o: /usr/include/string.h /usr/include/secure/_string.h
+relax.o: /usr/include/ctype.h /usr/include/runetype.h
+relax.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+relax.o: /usr/include/sys/times.h output.h memory.h expressions.h relax.h
+relax.o: search.h
+search.o: ff.h /usr/include/stdlib.h /usr/include/Availability.h
+search.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+search.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+search.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+search.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+search.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+search.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+search.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+search.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+search.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+search.o: /usr/include/libkern/_OSByteOrder.h
+search.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+search.o: /usr/include/machine/types.h /usr/include/i386/types.h
+search.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+search.o: /usr/include/secure/_common.h /usr/include/strings.h
+search.o: /usr/include/string.h /usr/include/secure/_string.h
+search.o: /usr/include/ctype.h /usr/include/runetype.h
+search.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+search.o: /usr/include/sys/times.h output.h memory.h expressions.h relax.h
+search.o: search.h
+utility.o: /usr/include/string.h /usr/include/_types.h
+utility.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+utility.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+utility.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+utility.o: utility.h ff.h /usr/include/stdlib.h /usr/include/Availability.h
+utility.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+utility.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+utility.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+utility.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+utility.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+utility.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+utility.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+utility.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+utility.o: /usr/include/machine/types.h /usr/include/i386/types.h
+utility.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+utility.o: /usr/include/strings.h /usr/include/ctype.h
+utility.o: /usr/include/runetype.h /usr/include/sys/types.h
+utility.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
+scan-fct_pddl.tab.o: /usr/include/stdio.h /usr/include/_types.h
+scan-fct_pddl.tab.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+scan-fct_pddl.tab.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+scan-fct_pddl.tab.o: /usr/include/secure/_stdio.h
+scan-fct_pddl.tab.o: /usr/include/secure/_common.h /usr/include/string.h
+scan-fct_pddl.tab.o: /usr/include/secure/_string.h ff.h /usr/include/stdlib.h
+scan-fct_pddl.tab.o: /usr/include/Availability.h
+scan-fct_pddl.tab.o: /usr/include/AvailabilityInternal.h
+scan-fct_pddl.tab.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+scan-fct_pddl.tab.o: /usr/include/sys/appleapiopts.h
+scan-fct_pddl.tab.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+scan-fct_pddl.tab.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+scan-fct_pddl.tab.o: /usr/include/machine/_structs.h
+scan-fct_pddl.tab.o: /usr/include/sys/resource.h
+scan-fct_pddl.tab.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+scan-fct_pddl.tab.o: /usr/include/sys/_endian.h
+scan-fct_pddl.tab.o: /usr/include/libkern/_OSByteOrder.h
+scan-fct_pddl.tab.o: /usr/include/libkern/i386/_OSByteOrder.h
+scan-fct_pddl.tab.o: /usr/include/alloca.h /usr/include/machine/types.h
+scan-fct_pddl.tab.o: /usr/include/i386/types.h /usr/include/strings.h
+scan-fct_pddl.tab.o: /usr/include/ctype.h /usr/include/runetype.h
+scan-fct_pddl.tab.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+scan-fct_pddl.tab.o: /usr/include/sys/times.h memory.h parse.h
+scan-fct_pddl.tab.o: /usr/include/stddef.h lex.fct_pddl.c
+scan-fct_pddl.tab.o: /usr/include/errno.h /usr/include/sys/errno.h
+scan-fct_pddl.tab.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+scan-fct_pddl.tab.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+scan-ops_pddl.tab.o: /usr/include/stdio.h /usr/include/_types.h
+scan-ops_pddl.tab.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+scan-ops_pddl.tab.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+scan-ops_pddl.tab.o: /usr/include/secure/_stdio.h
+scan-ops_pddl.tab.o: /usr/include/secure/_common.h /usr/include/string.h
+scan-ops_pddl.tab.o: /usr/include/secure/_string.h ff.h /usr/include/stdlib.h
+scan-ops_pddl.tab.o: /usr/include/Availability.h
+scan-ops_pddl.tab.o: /usr/include/AvailabilityInternal.h
+scan-ops_pddl.tab.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+scan-ops_pddl.tab.o: /usr/include/sys/appleapiopts.h
+scan-ops_pddl.tab.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+scan-ops_pddl.tab.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+scan-ops_pddl.tab.o: /usr/include/machine/_structs.h
+scan-ops_pddl.tab.o: /usr/include/sys/resource.h
+scan-ops_pddl.tab.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+scan-ops_pddl.tab.o: /usr/include/sys/_endian.h
+scan-ops_pddl.tab.o: /usr/include/libkern/_OSByteOrder.h
+scan-ops_pddl.tab.o: /usr/include/libkern/i386/_OSByteOrder.h
+scan-ops_pddl.tab.o: /usr/include/alloca.h /usr/include/machine/types.h
+scan-ops_pddl.tab.o: /usr/include/i386/types.h /usr/include/strings.h
+scan-ops_pddl.tab.o: /usr/include/ctype.h /usr/include/runetype.h
+scan-ops_pddl.tab.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+scan-ops_pddl.tab.o: /usr/include/sys/times.h memory.h parse.h
+scan-ops_pddl.tab.o: /usr/include/stddef.h lex.ops_pddl.c
+scan-ops_pddl.tab.o: /usr/include/errno.h /usr/include/sys/errno.h
+scan-ops_pddl.tab.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+scan-ops_pddl.tab.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+lex.fct_pddl.o: /usr/include/stdio.h /usr/include/_types.h
+lex.fct_pddl.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+lex.fct_pddl.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+lex.fct_pddl.o: /usr/include/secure/_stdio.h /usr/include/secure/_common.h
+lex.fct_pddl.o: /usr/include/string.h /usr/include/secure/_string.h
+lex.fct_pddl.o: /usr/include/errno.h /usr/include/sys/errno.h
+lex.fct_pddl.o: /usr/include/stdlib.h /usr/include/Availability.h
+lex.fct_pddl.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+lex.fct_pddl.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+lex.fct_pddl.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+lex.fct_pddl.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+lex.fct_pddl.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+lex.fct_pddl.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+lex.fct_pddl.o: /usr/include/sys/_endian.h
+lex.fct_pddl.o: /usr/include/libkern/_OSByteOrder.h
+lex.fct_pddl.o: /usr/include/libkern/i386/_OSByteOrder.h
+lex.fct_pddl.o: /usr/include/alloca.h /usr/include/machine/types.h
+lex.fct_pddl.o: /usr/include/i386/types.h ff.h /usr/include/strings.h
+lex.fct_pddl.o: /usr/include/ctype.h /usr/include/runetype.h
+lex.fct_pddl.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
 lex.fct_pddl.o: /usr/include/sys/times.h parse.h /usr/include/unistd.h
-lex.fct_pddl.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
-lex.fct_pddl.o: /usr/include/getopt.h
-lex.ops_pddl.o: /usr/include/stdio.h /usr/include/features.h
-lex.ops_pddl.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-lex.ops_pddl.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-lex.ops_pddl.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-lex.ops_pddl.o: /usr/include/libio.h /usr/include/_G_config.h
-lex.ops_pddl.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
-lex.ops_pddl.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-lex.ops_pddl.o: /usr/include/errno.h /usr/include/bits/errno.h
-lex.ops_pddl.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
-lex.ops_pddl.o: /usr/include/asm-generic/errno.h
-lex.ops_pddl.o: /usr/include/asm-generic/errno-base.h /usr/include/stdlib.h
-lex.ops_pddl.o: /usr/include/sys/types.h /usr/include/time.h
-lex.ops_pddl.o: /usr/include/endian.h /usr/include/bits/endian.h
-lex.ops_pddl.o: /usr/include/sys/select.h /usr/include/bits/select.h
-lex.ops_pddl.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-lex.ops_pddl.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-lex.ops_pddl.o: /usr/include/alloca.h ff.h /usr/include/strings.h
-lex.ops_pddl.o: /usr/include/ctype.h /usr/include/sys/timeb.h
+lex.fct_pddl.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+lex.fct_pddl.o: /usr/include/sys/_select.h
+lex.ops_pddl.o: /usr/include/stdio.h /usr/include/_types.h
+lex.ops_pddl.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+lex.ops_pddl.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+lex.ops_pddl.o: /usr/include/secure/_stdio.h /usr/include/secure/_common.h
+lex.ops_pddl.o: /usr/include/string.h /usr/include/secure/_string.h
+lex.ops_pddl.o: /usr/include/errno.h /usr/include/sys/errno.h
+lex.ops_pddl.o: /usr/include/stdlib.h /usr/include/Availability.h
+lex.ops_pddl.o: /usr/include/AvailabilityInternal.h /usr/include/sys/wait.h
+lex.ops_pddl.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+lex.ops_pddl.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+lex.ops_pddl.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+lex.ops_pddl.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+lex.ops_pddl.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+lex.ops_pddl.o: /usr/include/sys/_endian.h
+lex.ops_pddl.o: /usr/include/libkern/_OSByteOrder.h
+lex.ops_pddl.o: /usr/include/libkern/i386/_OSByteOrder.h
+lex.ops_pddl.o: /usr/include/alloca.h /usr/include/machine/types.h
+lex.ops_pddl.o: /usr/include/i386/types.h ff.h /usr/include/strings.h
+lex.ops_pddl.o: /usr/include/ctype.h /usr/include/runetype.h
+lex.ops_pddl.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
 lex.ops_pddl.o: /usr/include/sys/times.h parse.h /usr/include/unistd.h
-lex.ops_pddl.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
-lex.ops_pddl.o: /usr/include/getopt.h
-test_main.o: libff.h ff.h /usr/include/stdlib.h /usr/include/features.h
-test_main.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-test_main.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-test_main.o: /usr/include/sys/types.h /usr/include/bits/types.h
-test_main.o: /usr/include/bits/typesizes.h /usr/include/time.h
-test_main.o: /usr/include/endian.h /usr/include/bits/endian.h
-test_main.o: /usr/include/sys/select.h /usr/include/bits/select.h
-test_main.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-test_main.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-test_main.o: /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h
-test_main.o: /usr/include/_G_config.h /usr/include/wchar.h
-test_main.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-test_main.o: /usr/include/strings.h /usr/include/ctype.h
-test_main.o: /usr/include/sys/timeb.h /usr/include/sys/times.h output.h
+lex.ops_pddl.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+lex.ops_pddl.o: /usr/include/sys/_select.h
+test_main.o: libff.h ff.h /usr/include/stdlib.h /usr/include/Availability.h
+test_main.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+test_main.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+test_main.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+test_main.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+test_main.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+test_main.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+test_main.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+test_main.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+test_main.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+test_main.o: /usr/include/libkern/_OSByteOrder.h
+test_main.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+test_main.o: /usr/include/machine/types.h /usr/include/i386/types.h
+test_main.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+test_main.o: /usr/include/secure/_common.h /usr/include/strings.h
+test_main.o: /usr/include/string.h /usr/include/secure/_string.h
+test_main.o: /usr/include/ctype.h /usr/include/runetype.h
+test_main.o: /usr/include/sys/types.h /usr/include/sys/timeb.h
+test_main.o: /usr/include/sys/times.h output.h
