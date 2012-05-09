@@ -90,6 +90,8 @@ void	FF_PDDL_To_STRIPS::get_problem_description( std::string pddl_domain_path,
 	{
 		for ( int i = 0; i < gnum_op_conn; i++ )
 		{
+			if( ! (gop_conn[i].action) ) continue;
+
 			std::string op_name = FF::get_op_name( gop_conn[i].action );
 			
 			Fluent_Vec op_precs;
