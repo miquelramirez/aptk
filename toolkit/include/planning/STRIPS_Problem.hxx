@@ -65,7 +65,7 @@ namespace aig_tk
 		void                    print_fluent_vec(const Fluent_Vec &a);
 		unsigned                end_operator() { return m_end_operator_id; }
 	        int                     getFluentIndex(std::string signature);
-	
+		void			make_action_tables();	
 	protected:
 	
 		void			increase_num_fluents()        { m_num_fluents++; }

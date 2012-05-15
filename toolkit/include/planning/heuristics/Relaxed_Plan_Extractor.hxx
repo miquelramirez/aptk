@@ -58,7 +58,6 @@ unsigned Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
 {
 	heuristic().compute(C);
 	heuristic().eval( G );
-
 	// 0. Initialize data structures
 	actions_seen().reset();
 	init_fluents().reset();
@@ -85,13 +84,12 @@ unsigned Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
 		relaxed_plan.push_back( sup );
 	}	
 
-
 	while ( !actions_pending().empty() )
 	{
 		Action* a = actions_pending().front();
 		actions_pending().pop();
 		
-		Fluent_Vec& prec = a->prec_vec();
+		Fluent_Vec prec = a->prec_vec();
 		unsigned ce_idx = 0;
 		do{
 

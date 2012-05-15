@@ -19,6 +19,16 @@ namespace aig_tk
 	{
 	}
 
+	void	STRIPS_Problem::make_action_tables()
+	{
+		m_requiring.resize( fluents().size() );
+		m_deleting.resize( fluents().size() );
+		m_adding.resize( fluents().size() );
+		
+		for ( unsigned k = 0; k < actions().size(); k++ )
+			register_action_in_tables( actions()[k] );
+	}
+
 	void	STRIPS_Problem::register_action_in_tables( Action* a )
 	{
 		for ( unsigned k = 0; k < a->prec_vec().size(); k++ )
