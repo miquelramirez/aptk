@@ -19,8 +19,8 @@ namespace aig_tk
 
 	void	Regression_Best_First_Search::eval( Node* n )
 	{
-                n->hn() = heuristic().eval( n->s()->fluent_vec() );	
-		setFn(n);
+                n->hn() = heuristic().eval( n->s()->fluent_vec() );
+		setFn(n);		
 	}
 
 	void	Regression_Best_First_Search::process( Node* head )

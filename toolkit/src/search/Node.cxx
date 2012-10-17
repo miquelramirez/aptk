@@ -88,7 +88,7 @@ namespace aig_tk
   void Node::set_parent(Node *np, Action *a) {
     m_parent = np;
     m_op = a;
-    m_gn = m_gn + a->cost();
+    m_gn = m_parent->gn() + a->cost();
   }
 
 }
