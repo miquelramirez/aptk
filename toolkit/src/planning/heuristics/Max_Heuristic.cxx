@@ -96,7 +96,6 @@ void Max_Heuristic::compute( Fluent_Vec& C )
 
 			// b. cutoff if infty
 			if (h_pre == infty ) continue;
-
 			// c. update when a is a better support for p \in Add(a)
 			Cost_Type v = actions[k]->cost() + h_pre;                        
 			for ( unsigned l = 0; l < actions[k]->add_vec().size(); l++ )

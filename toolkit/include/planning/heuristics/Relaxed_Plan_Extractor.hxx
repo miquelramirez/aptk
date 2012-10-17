@@ -22,7 +22,7 @@ public:
 	~Relaxed_Plan_Extractor() {}
 
 	void		initialize( STRIPS_Problem& p );
-	unsigned	eval( Fluent_Vec& C, Fluent_Vec& G );
+	Cost_Type	eval( Fluent_Vec& C, Fluent_Vec& G );
 
 protected:
 
@@ -32,7 +32,7 @@ protected:
 	Action_Queue&		actions_pending() { return m_pending; }
 	Bit_Array&		init_fluents() { return m_init_fluents; }
 
-	
+	bool			extract_best_supporters_for( Fluent_Vec& C, Action_Ptr_Vec& relaxed_plan );
 
 protected:
 
@@ -54,11 +54,37 @@ void	Relaxed_Plan_Extractor<Heuristic>::initialize( STRIPS_Problem& p )
 }
 
 template <typename Heuristic>
-unsigned Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
+bool	Relaxed_Plan_Extractor<Heuristic>::extract_best_supporters_for( Fluent_Vec& C, Action_Ptr_Vec& relaxed_plan )
+{
+	for ( unsigned k = 0; k < C.size(); k++ )
+	{
+		if ( init_fluents().isset( C[k] ) ) continue;
+		Action* sup = heuristic().best_supporter( C[k] );
+		if ( sup == NULL )
+		{
+			std::cerr << "No best supporter found for fluent ";
+			std::cerr << problem().fluents()[C[k]]->signature() << std::endl;
+			return false;
+		}
+#ifdef DEBUG
+		std::cout << a->signature() << "[" << a->index() <<  "] <- " << problem().fluents()[C[k]]->signature();
+		std::cout << " <- " << sup->signature() << "[" << sup->index() << "]" << std::endl;
+#endif
+		if ( actions_seen().isset( sup->index() ) ) continue;
+		actions_pending().push( sup );
+		actions_seen().set( sup->index() );
+		relaxed_plan.push_back( sup );
+	} 
+	return true;
+}
+
+template <typename Heuristic>
+Cost_Type Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
 {
 	heuristic().compute(C);
-	heuristic().eval( G );
-
+	Cost_Type v = heuristic().eval( G );
+	if ( v == std::numeric_limits<Cost_Type>::infinity() )
+		return 	std::numeric_limits<Cost_Type>::infinity();
 	// 0. Initialize data structures
 	actions_seen().reset();
 	init_fluents().reset();
@@ -71,13 +97,12 @@ unsigned Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
 	// 1. Add to the pending queue best supporters for goal fluents
 	for ( unsigned k = 0; k < G.size(); k++ )
 	{
+		if ( init_fluents().isset( G[k] ) ) continue;
 		Action* sup = heuristic().best_supporter( G[k] );
 		if ( sup == NULL ) // No best supporter for fluent
 		{
-			#ifdef DEBUG
 			std::cerr << "No best supporter found for goal fluent ";
 			std::cerr << problem().fluents()[G[k]]->signature() << std::endl;
-			#endif
 			return infty;
 		}
 		actions_pending().push( sup );
@@ -85,46 +110,61 @@ unsigned Relaxed_Plan_Extractor<Heuristic>::eval( Fluent_Vec& C, Fluent_Vec& G )
 		relaxed_plan.push_back( sup );
 	}	
 
-
 	while ( !actions_pending().empty() )
 	{
 		Action* a = actions_pending().front();
 		actions_pending().pop();
-		
-		Fluent_Vec& prec = a->prec_vec();
-		unsigned ce_idx = 0;
-		do{
+/*		
+		Fluent_Vec prec = a->prec_vec();
 
+ 		unsigned ce_idx = 0;
+ 		do{
+	
 			for ( unsigned k = 0; k < prec.size(); k++ )
-			{
-				if ( init_fluents().isset( prec[k] ) ) continue;
-				Action* sup = heuristic().best_supporter( prec[k] );
-				if ( sup == NULL )
-				{
+	  		{
+	   			if ( init_fluents().isset( prec[k] ) ) continue;
+	    			Action* sup = heuristic().best_supporter( prec[k] );
+	     			if ( sup == NULL )
+	      			{
 #ifdef DEBUG
-					std::cerr << "No best supporter found for fluent ";
-					std::cerr << problem().fluents()[prec[k]]->signature() << std::endl;
+	     				std::cerr << "No best supporter found for fluent ";
+	      				std::cerr << problem().fluents()[prec[k]]->signature() << std::endl;
 #endif
-					return infty;
-				}
+			 		return infty;
+			  	}
 #ifdef DEBUG
-				std::cout << a->signature() << "[" << a->index() <<  "] <- " << problem().fluents()[prec[k]]->signature();
-				std::cout << " <- " << sup->signature() << "[" << sup->index() << "]" << std::endl;
+			   	std::cout << a->signature() << "[" << a->index() <<  "] <- " << problem().fluents()[prec[k]]->signature();
+			    	std::cout << " <- " << sup->signature() << "[" << sup->index() << "]" << std::endl;
 #endif
-				if ( actions_seen().isset( sup->index() ) ) continue;
+       				if ( actions_seen().isset( sup->index() ) ) continue;
 				actions_pending().push( sup );
-				actions_seen().set( sup->index() );
-				relaxed_plan.push_back( sup );
-			} 
-			if( ce_idx < a->ceff_vec().size() )
-			{
-				prec = a->ceff_vec()[ ce_idx ]->prec_vec();
-				ce_idx++;
+	 			actions_seen().set( sup->index() );
+	  			relaxed_plan.push_back( sup );
+	   		} 
+	    		if( ce_idx < a->ceff_vec().size() )
+	     		{
+	      			prec = a->ceff_vec()[ ce_idx ]->prec_vec();
+	       			ce_idx++;
 			}
-			else
-				break;
-		
+		 	else
+		  		break;
+               
 		}while( true );
+*/
+
+		if ( !extract_best_supporters_for( a->prec_vec(), relaxed_plan ) )
+		{
+			assert( false );
+			return infty;
+		}
+		for ( unsigned k = 0; k < a->ceff_vec().size(); k++ )
+		{
+			if ( !extract_best_supporters_for( a->ceff_vec()[ k ]->prec_vec(), relaxed_plan ) )
+			{
+				assert( false );
+				return infty;
+			}
+		}
 	}
 	
 	return relaxed_plan.size();

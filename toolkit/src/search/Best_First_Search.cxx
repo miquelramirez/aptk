@@ -128,7 +128,7 @@ namespace aig_tk {
         Best_First_Search::openNode(Node *n, Hash_Key& h, Open_List<Node_Comparer,Node*> &o) {
 
                 eval(n);
-                if(n->hn() == std::numeric_limits<float>::infinity()) {
+                if(n->hn() == std::numeric_limits<Cost_Type>::infinity()) {
                         close(n);
                 }
                 else {

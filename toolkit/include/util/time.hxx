@@ -16,8 +16,11 @@ inline double  time_used()
 	getrusage( RUSAGE_SELF, &data );
 
 	double system_time = (double)data.ru_stime.tv_sec + ((double)data.ru_stime.tv_usec/1e6);
+	system_time = ( system_time < 1e-6 ? 1e-6 : system_time );
+
 	double user_time = (double)data.ru_utime.tv_sec + ((double)data.ru_utime.tv_usec/(double)1e6);
-	
+	user_time = ( user_time < 1e-6 ? 1e-6 : user_time );	
+
 	return user_time + system_time;
 }
 
@@ -27,7 +30,7 @@ inline void report_interval( double t0, double t1, std::ostream& os )
 	if (delta < 1e-12)
 		os << "<1 msec";
 	else
-	  os << std::setprecision(3) << delta << " seconds";
+	  os << std::setprecision(6) << delta << " seconds";
 }
 
 #endif

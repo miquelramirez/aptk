@@ -23,7 +23,12 @@ void	Reachability_Test::initialize(Fluent_Vec& s)
 	for ( unsigned i = 0; i < m_action_mask.size(); i++ )
 		m_action_mask[i] = false;
 	for ( unsigned i = 0; i < s.size(); i++ )
+	{
+		#ifdef DEBUG
+		std::cout << "Fluent " << m_problem.fluents()[s[i]]->signature() << " initially true" << std::endl;
+		#endif
 		m_reachable_atoms[ s[i] ] = true;
+	}
 	
 }
 
@@ -64,9 +69,35 @@ bool	Reachability_Test::apply_actions()
 				fixed_point = false;
 			}
 		}
+		bool all_ce_applied = true;
+		for( unsigned j = 0; j < a->ceff_vec().size(); j++ )
+		{
+			Fluent_Vec&	pi = a->ceff_vec()[j]->prec_vec();
+			bool		applicable = true;
+			for ( unsigned k = 0; k < pi.size(); k++ )
+				if ( !m_reachable_atoms[pi[k]] )
+				{
+					applicable = false;
+					break;
+				}
 		
-		// Mark action as already used
-		m_action_mask[i] = true;
+			if ( !applicable )
+			{
+				all_ce_applied = false;
+				continue;
+			}
+			Fluent_Vec&	ai = a->ceff_vec()[j]->add_vec();
+			for ( unsigned k = 0; k < ai.size(); k++ )
+			{
+				if ( !m_reachable_atoms[ai[k]] )
+				{
+					m_reach_next[ai[k]] = true;
+					fixed_point = false;
+				}
+			}
+	
+		}
+		if ( all_ce_applied ) m_action_mask[i] = true;
 	}
 	m_reachable_atoms = m_reach_next;
 	return fixed_point;
