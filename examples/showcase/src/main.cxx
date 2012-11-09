@@ -415,7 +415,7 @@ int main( int argc, char** argv )
 	 * SEARCH
 	 **/
 
-	Best_First_Search engine;        
+	aig_tk::Best_First_Search engine;        
         
 	engine.set_heuristic(estimator);
 	engine.set_problem(strips_prob);
@@ -432,7 +432,7 @@ int main( int argc, char** argv )
 	}
 
 	plan.clear();
-	n0 = Node::root( strips_prob );
+	n0 = aig_tk::Node::root( strips_prob );
 
 	if( engine.solve(n0, plan) )
 	{

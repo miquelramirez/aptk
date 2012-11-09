@@ -2,8 +2,8 @@ import os
 
 common_env = Environment()
 
-include_paths = ['../toolkit/include', '../toolkit/lib']
-lib_paths = [ '../toolkit', '../toolkit/lib/libff' ]
+include_paths = ['../../toolkit/include', '../../toolkit/lib']
+lib_paths = [ '../../toolkit', '../../toolkit/lib/libff' ]
 
 common_env.Append( CPPPATH = [ os.path.abspath(p) for p in include_paths ] )
 #common_env.Append( CCFLAGS = ['-g','-Wall', '-DDEBUG' ] )
